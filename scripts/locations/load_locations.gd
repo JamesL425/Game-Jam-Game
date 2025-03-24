@@ -9,7 +9,7 @@ var locations: Variant;
 func _ready() -> void:
 	locations = locations_json.get_data()
 	rng.randomize()
-	print(create_address())
+	print(locations)
 
 # TODO: weighted random based on population
 func create_address() -> String:

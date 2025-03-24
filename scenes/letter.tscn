@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://cp0jadnqfhk2h"]
+
+[ext_resource type="Texture2D" uid="uid://bbdyt062uf5bt" path="res://temp - REPLACE/letter_bg.png" id="2_antxc"]
+
+[sub_resource type="SystemFont" id="SystemFont_lbhrr"]
+subpixel_positioning = 0
+
+[node name="letter" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_antxc")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -105.0
+offset_top = -29.0
+offset_right = 98.0
+offset_bottom = 21.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("SystemFont_lbhrr")
+theme_override_font_sizes/font_size = 36
+text = "Hello World"

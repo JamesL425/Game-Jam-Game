@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/letter.gd" id="1_uwrxv"]
 [ext_resource type="Script" uid="uid://dfyuvn4x4o5oh" path="res://scripts/locations/load_locations.gd" id="2_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://cp0jadnqfhk2h" path="res://scenes/letter.tscn" id="3_lbhrr"]
 [ext_resource type="JSON" uid="uid://bgulfdsfp41sy" path="res://resources/locations.tres" id="3_lnu2h"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_lnu2h"]
@@ -9,10 +10,7 @@ size = Vector2(1920, 1080)
 
 [node name="game" type="Node2D"]
 
-[node name="letter" type="Node2D" parent="."]
-script = ExtResource("1_uwrxv")
-
-[node name="Node" type="Node" parent="."]
+[node name="AddressGenerator" type="Node" parent="."]
 script = ExtResource("2_yqjtg")
 locations_json = ExtResource("3_lnu2h")
 

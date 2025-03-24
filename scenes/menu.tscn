@@ -2,53 +2,53 @@
 
 [ext_resource type="Script" uid="uid://p7bqphv5000d" path="res://scripts/menu.gd" id="1_yqeox"]
 [ext_resource type="Texture2D" uid="uid://2cry31fjeqlp" path="res://temp - REPLACE/menu_bg.png" id="2_vjb58"]
-[ext_resource type="Texture2D" uid="uid://ynhoynkhreuw" path="res://temp - REPLACE/play_button.png" id="3_con2f"]
-[ext_resource type="Texture2D" uid="uid://6vsn0ton65xh" path="res://temp - REPLACE/quit_button.png" id="4_mhnvy"]
+[ext_resource type="Texture2D" uid="uid://dfmmqv5cfsq8h" path="res://temp - REPLACE/play_button.png" id="3_con2f"]
+[ext_resource type="Texture2D" uid="uid://0ssjlv3ila86" path="res://temp - REPLACE/quit_button.png" id="4_mhnvy"]
 
-[node name="root" type="Control"]
-layout_mode = 3
+[node name="root" type="MarginContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 1.335
+offset_right = 1.33496
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_yqeox")
 
 [node name="background" type="TextureRect" parent="."]
-layout_mode = 0
-offset_right = 1920.0
-offset_bottom = 1080.0
+layout_mode = 2
 texture = ExtResource("2_vjb58")
 
-[node name="title" type="TextureRect" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
 
-[node name="play button" type="TextureButton" parent="."]
-layout_mode = 0
-offset_left = 88.0
-offset_top = 135.0
-offset_right = 903.0
-offset_bottom = 818.0
-scale = Vector2(0.320001, 0.2)
+[node name="HSplitContainer" type="HSplitContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/HSplitContainer"]
+layout_mode = 2
+
+[node name="VSplitContainer" type="VBoxContainer" parent="MarginContainer/HSplitContainer/CenterContainer"]
+layout_mode = 2
+
+[node name="title" type="TextureRect" parent="MarginContainer/HSplitContainer/CenterContainer/VSplitContainer"]
+layout_mode = 2
+
+[node name="play button" type="TextureButton" parent="MarginContainer/HSplitContainer/CenterContainer/VSplitContainer"]
+layout_mode = 2
 texture_normal = ExtResource("3_con2f")
 
-[node name="quit button" type="TextureButton" parent="."]
-layout_mode = 0
-offset_left = 88.0
-offset_top = 322.0
-offset_right = 512.0
-offset_bottom = 916.0
-scale = Vector2(0.475113, 0.36246)
+[node name="quit button" type="TextureButton" parent="MarginContainer/HSplitContainer/CenterContainer/VSplitContainer"]
+layout_mode = 2
 texture_normal = ExtResource("4_mhnvy")
 
-[node name="language dropdown" type="OptionButton" parent="."]
-layout_mode = 0
-offset_left = 42.0
-offset_top = 20.0
-offset_right = 174.0
-offset_bottom = 56.0
+[node name="CenterContainer2" type="CenterContainer" parent="MarginContainer/HSplitContainer/CenterContainer/VSplitContainer"]
+layout_mode = 2
+
+[node name="language dropdown" type="OptionButton" parent="MarginContainer/HSplitContainer/CenterContainer/VSplitContainer/CenterContainer2"]
+layout_mode = 2
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -61,5 +61,8 @@ popup/item_0/id = 0
 popup/item_1/text = "日本語"
 popup/item_1/id = 1
 
-[connection signal="pressed" from="play button" to="." method="_on_play_button_pressed"]
-[connection signal="pressed" from="quit button" to="." method="_on_quit_button_pressed"]
+[node name="PanelContainer" type="Panel" parent="MarginContainer/HSplitContainer"]
+layout_mode = 2
+
+[connection signal="pressed" from="MarginContainer/HSplitContainer/CenterContainer/VSplitContainer/play button" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="MarginContainer/HSplitContainer/CenterContainer/VSplitContainer/quit button" to="." method="_on_quit_button_pressed"]
