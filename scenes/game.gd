@@ -14,6 +14,3 @@ func new_game():
 	
 func game_over():
 	pass	
-	
-func _ready():
-	new_game()
