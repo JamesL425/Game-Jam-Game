@@ -2,6 +2,8 @@ extends Node2D
 
 signal parcel_resolved
 
+@export var parcel_scene: PackedScene
 
 func _on_parcel_resolved() -> void:
-	pass # Replace with function body.
+	var parcel = parcel_scene.instantiate()
+	parcel.position = $ParcelStartPosition.position
