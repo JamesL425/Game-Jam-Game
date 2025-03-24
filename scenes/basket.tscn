@@ -1,10 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://dqanasyrhoi26"]
+[gd_scene load_steps=4 format=3 uid="uid://dqanasyrhoi26"]
+
+[ext_resource type="Script" uid="uid://7qkih0o04h2o" path="res://scenes/basket.gd" id="1_ccfdg"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ccfdg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kcd6v"]
 
 [node name="Basket" type="Area2D"]
+script = ExtResource("1_ccfdg")
 
 [node name="BasketSprite" type="AnimatedSprite2D" parent="."]
 scale = Vector2(100, 100)

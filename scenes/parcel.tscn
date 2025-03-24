@@ -1,10 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://drtnfnqd4fser"]
+[gd_scene load_steps=4 format=3 uid="uid://drtnfnqd4fser"]
+
+[ext_resource type="Script" uid="uid://b463qnb3db7mp" path="res://scenes/parcel.gd" id="1_40veq"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ohc0n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_40veq"]
 
 [node name="Parcel" type="RigidBody2D"]
+script = ExtResource("1_40veq")
 
 [node name="ParcelSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ohc0n")

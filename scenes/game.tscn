@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://bgs4sp1wbkexw"]
+[gd_scene load_steps=6 format=3 uid="uid://bgs4sp1wbkexw"]
 
+[ext_resource type="Script" uid="uid://bea3ejv1dy4x" path="res://scenes/game.gd" id="1_lbhrr"]
 [ext_resource type="Script" uid="uid://dfyuvn4x4o5oh" path="res://scripts/locations/load_locations.gd" id="2_yqjtg"]
 [ext_resource type="JSON" uid="uid://bgulfdsfp41sy" path="res://resources/locations.tres" id="3_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://dqanasyrhoi26" path="res://scenes/basket.tscn" id="4_iywne"]
@@ -8,6 +9,7 @@
 size = Vector2(1920, 1080)
 
 [node name="game" type="Node2D"]
+script = ExtResource("1_lbhrr")
 
 [node name="AddressGenerator" type="Node" parent="."]
 script = ExtResource("2_yqjtg")
