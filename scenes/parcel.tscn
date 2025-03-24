@@ -10,6 +10,7 @@
 script = ExtResource("1_40veq")
 
 [node name="ParcelSprite" type="AnimatedSprite2D" parent="."]
+scale = Vector2(100, 100)
 sprite_frames = SubResource("SpriteFrames_ohc0n")
 
 [node name="ParcelHitbox" type="CollisionShape2D" parent="."]
