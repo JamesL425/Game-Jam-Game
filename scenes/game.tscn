@@ -25,3 +25,5 @@ centered = false
 
 [node name="ParcelStartPosition" type="Marker2D" parent="."]
 position = Vector2(500, 500)
+
+[connection signal="parcel_resolved" from="." to="." method="_on_parcel_resolved"]
