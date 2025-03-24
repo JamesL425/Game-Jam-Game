@@ -1,3 +1,15 @@
-[gd_scene format=3 uid="uid://dqanasyrhoi26"]
+[gd_scene load_steps=3 format=3 uid="uid://dqanasyrhoi26"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ccfdg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kcd6v"]
 
 [node name="Basket" type="Area2D"]
+
+[node name="BasketSprite" type="AnimatedSprite2D" parent="."]
+scale = Vector2(100, 100)
+sprite_frames = SubResource("SpriteFrames_ccfdg")
+
+[node name="BasketHitbox" type="CollisionShape2D" parent="."]
+scale = Vector2(100, 100)
+shape = SubResource("RectangleShape2D_kcd6v")
