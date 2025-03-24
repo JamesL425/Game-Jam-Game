@@ -8,6 +8,9 @@ func _on_parcel_resolved() -> void:
 	var parcel = parcel_scene.instantiate()
 	parcel.position = $ParcelStartPosition.position
 
+func _ready() -> void:
+	new_game()
+
 func new_game():
 	var parcel = parcel_scene.instantiate()
 	add_child(parcel)
