@@ -11,7 +11,6 @@ func _ready() -> void:
 	rng.randomize()
 	print(create_address())
 
-
 # TODO: weighted random based on population
 func create_address() -> String:
 	var country_index = rng.randi_range(0, locations.size()-1)

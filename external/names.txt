@@ -1,0 +1,12 @@
+country England
+  first_name
+  end_first_name
+  surname
+  end_surname
+end_country
+country Japan
+  first_name
+  end_first_name
+  surname
+  end_surname
+end_country

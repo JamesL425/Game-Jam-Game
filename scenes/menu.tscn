@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://d0mv0fqhkbhih"]
 
 [ext_resource type="Script" uid="uid://p7bqphv5000d" path="res://scripts/menu.gd" id="1_yqeox"]
-[ext_resource type="Texture2D" uid="uid://bll8h8ae1p7pn" path="res://temp - REPLACE/menu_bg.png" id="2_vjb58"]
+[ext_resource type="Texture2D" uid="uid://2cry31fjeqlp" path="res://temp - REPLACE/menu_bg.png" id="2_vjb58"]
 [ext_resource type="Texture2D" uid="uid://ynhoynkhreuw" path="res://temp - REPLACE/play_button.png" id="3_con2f"]
 [ext_resource type="Texture2D" uid="uid://6vsn0ton65xh" path="res://temp - REPLACE/quit_button.png" id="4_mhnvy"]
 
@@ -16,8 +16,8 @@ script = ExtResource("1_yqeox")
 
 [node name="background" type="TextureRect" parent="."]
 layout_mode = 0
-offset_right = 1141.0
-offset_bottom = 640.0
+offset_right = 1920.0
+offset_bottom = 1080.0
 texture = ExtResource("2_vjb58")
 
 [node name="title" type="TextureRect" parent="."]
