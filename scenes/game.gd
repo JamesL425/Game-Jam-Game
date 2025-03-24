@@ -9,7 +9,8 @@ func _on_parcel_resolved() -> void:
 	parcel.position = $ParcelStartPosition.position
 
 func new_game():
-	pass
-
+	var parcel = parcel_scene.instantiate()
+	add_child(parcel)
+	
 func game_over():
 	pass	
