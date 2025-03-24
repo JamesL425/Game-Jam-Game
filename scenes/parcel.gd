@@ -4,7 +4,9 @@ var can_pick: bool = false;
 var picking: bool = false;
 var picking_mouse_rel: Vector2;
 
-@export var force_scale = 0.1;
+var shouldReject: bool = true;
+
+@export var force_scale = 0.5;
 
 func _ready() -> void:
 	$Label.text = "To: " + AddressGenerator.create_address() + "\n\n" + "From: " + AddressGenerator.create_address()
@@ -12,7 +14,8 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	var m_pos = get_global_mouse_position()
 	if (picking):
-		global_transform.origin = m_pos - picking_mouse_rel
+		move_and_collide(m_pos + picking_mouse_rel - position)
+		#global_transform.origin = m_pos - picking_mouse_rel
 
 
 func _on_mouse_entered() -> void:

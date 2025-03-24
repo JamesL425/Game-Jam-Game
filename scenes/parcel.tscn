@@ -1,7 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://drtnfnqd4fser"]
+[gd_scene load_steps=6 format=3 uid="uid://drtnfnqd4fser"]
 
 [ext_resource type="Script" uid="uid://b463qnb3db7mp" path="res://scenes/parcel.gd" id="1_40veq"]
 [ext_resource type="Texture2D" uid="uid://bbdyt062uf5bt" path="res://temp - REPLACE/letter_bg.png" id="4_3o1h4"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_fve4f"]
+bounce = 0.08
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ohc0n"]
 
@@ -9,6 +12,7 @@
 
 [node name="Parcel" type="RigidBody2D"]
 input_pickable = true
+physics_material_override = SubResource("PhysicsMaterial_fve4f")
 script = ExtResource("1_40veq")
 
 [node name="ParcelSprite" type="AnimatedSprite2D" parent="."]
@@ -17,21 +21,21 @@ scale = Vector2(100, 100)
 sprite_frames = SubResource("SpriteFrames_ohc0n")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0.624992, 0.12498)
-scale = Vector2(0.317729, 0.440253)
+position = Vector2(1.99999, -4.76837e-06)
+scale = Vector2(0.159363, 0.220264)
 texture = ExtResource("4_3o1h4")
 
 [node name="ParcelHitbox" type="CollisionShape2D" parent="."]
-scale = Vector2(20, 20)
+scale = Vector2(10, 10)
 shape = SubResource("RectangleShape2D_40veq")
 
 [node name="Label" type="Label" parent="."]
-offset_left = 18.0
-offset_top = -109.0
-offset_right = 181.0
-offset_bottom = -59.0
+offset_left = -53.0
+offset_top = -66.0
+offset_right = 44.0
+offset_bottom = -16.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 16
 text = "Hello World"
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

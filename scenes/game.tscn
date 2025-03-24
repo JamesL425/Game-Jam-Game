@@ -1,19 +1,51 @@
-[gd_scene load_steps=6 format=3 uid="uid://bgs4sp1wbkexw"]
+[gd_scene load_steps=16 format=3 uid="uid://bgs4sp1wbkexw"]
 
 [ext_resource type="Script" uid="uid://bea3ejv1dy4x" path="res://scenes/game.gd" id="1_lbhrr"]
-[ext_resource type="Script" uid="uid://dfyuvn4x4o5oh" path="res://scripts/locations/load_locations.gd" id="2_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://drtnfnqd4fser" path="res://scenes/parcel.tscn" id="3_lbhrr"]
-[ext_resource type="PackedScene" path="res://scenes/basket.tscn" id="4_iywne"]
+[ext_resource type="PackedScene" uid="uid://c6htbiehct4kv" path="res://scenes/basket.tscn" id="4_iywne"]
+[ext_resource type="Texture2D" uid="uid://dst7frihqlj5p" path="res://temp - REPLACE/table.jpg" id="4_lbhrr"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_lnu2h"]
 size = Vector2(1920, 1080)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_lbhrr"]
+bounce = 0.05
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lbhrr"]
+size = Vector2(1236, 341)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_iywne"]
+bounce = 1.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lbhrr"]
+normal = Vector2(-1, 0)
+distance = -976.15
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_p57ef"]
+bounce = 1.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_iywne"]
+normal = Vector2(1, 0)
+distance = -976.15
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_u5sy4"]
+bounce = 1.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_p57ef"]
+normal = Vector2(0, 1)
+distance = -555.07
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_gee14"]
+bounce = 1.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_u5sy4"]
+distance = -555.07
 
 [node name="game" type="Node2D"]
 script = ExtResource("1_lbhrr")
 parcel_scene = ExtResource("3_lbhrr")
 
-[node name="AddressGenerator" type="Node" parent="."]
-script = ExtResource("2_yqjtg")
+[node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Background" type="Sprite2D" parent="."]
 visible = false
@@ -21,14 +53,50 @@ texture = SubResource("PlaceholderTexture2D_lnu2h")
 centered = false
 
 [node name="ApproveBasket" parent="." instance=ExtResource("4_iywne")]
-visible = false
+position = Vector2(898, 673)
 
 [node name="RejectBasket" parent="." instance=ExtResource("4_iywne")]
-visible = false
+position = Vector2(-905, 682)
 
 [node name="ParcelStartPosition" type="Marker2D" parent="."]
-position = Vector2(500, 500)
+position = Vector2(-8, -426)
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="table" type="StaticBody2D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_lbhrr")
+
+[node name="tableCollision" type="CollisionShape2D" parent="table"]
+position = Vector2(-1, 354)
+shape = SubResource("RectangleShape2D_lbhrr")
+
+[node name="tableSprite" type="Sprite2D" parent="table"]
+position = Vector2(0, 354.5)
+scale = Vector2(0.71042, 0.348049)
+texture = ExtResource("4_lbhrr")
+
+[node name="Boundaries" type="Node2D" parent="."]
+
+[node name="RightWall" type="StaticBody2D" parent="Boundaries"]
+physics_material_override = SubResource("PhysicsMaterial_iywne")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/RightWall"]
+shape = SubResource("WorldBoundaryShape2D_lbhrr")
+
+[node name="LeftWall" type="StaticBody2D" parent="Boundaries"]
+physics_material_override = SubResource("PhysicsMaterial_p57ef")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/LeftWall"]
+shape = SubResource("WorldBoundaryShape2D_iywne")
+
+[node name="TopWall" type="StaticBody2D" parent="Boundaries"]
+physics_material_override = SubResource("PhysicsMaterial_u5sy4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/TopWall"]
+shape = SubResource("WorldBoundaryShape2D_p57ef")
+
+[node name="BottomWall" type="StaticBody2D" parent="Boundaries"]
+physics_material_override = SubResource("PhysicsMaterial_gee14")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/BottomWall"]
+shape = SubResource("WorldBoundaryShape2D_u5sy4")
 
 [connection signal="parcel_resolved" from="." to="." method="_on_parcel_resolved"]
