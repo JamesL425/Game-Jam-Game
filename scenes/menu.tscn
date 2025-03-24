@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://d0mv0fqhkbhih"]
+[gd_scene load_steps=5 format=3 uid="uid://d0mv0fqhkbhih"]
 
 [ext_resource type="Script" uid="uid://p7bqphv5000d" path="res://scripts/menu.gd" id="1_yqeox"]
+[ext_resource type="Texture2D" uid="uid://bll8h8ae1p7pn" path="res://temp - REPLACE/menu_bg.png" id="2_vjb58"]
+[ext_resource type="Texture2D" uid="uid://ynhoynkhreuw" path="res://temp - REPLACE/play_button.png" id="3_con2f"]
+[ext_resource type="Texture2D" uid="uid://6vsn0ton65xh" path="res://temp - REPLACE/quit_button.png" id="4_mhnvy"]
 
 [node name="root" type="Control"]
 layout_mode = 3
@@ -11,6 +14,12 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_yqeox")
 
+[node name="background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1141.0
+offset_bottom = 640.0
+texture = ExtResource("2_vjb58")
+
 [node name="title" type="TextureRect" parent="."]
 layout_mode = 0
 offset_right = 40.0
@@ -18,9 +27,39 @@ offset_bottom = 40.0
 
 [node name="play button" type="TextureButton" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 88.0
+offset_top = 135.0
+offset_right = 903.0
+offset_bottom = 818.0
+scale = Vector2(0.320001, 0.2)
+texture_normal = ExtResource("3_con2f")
 
 [node name="quit button" type="TextureButton" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 0
+offset_left = 88.0
+offset_top = 322.0
+offset_right = 512.0
+offset_bottom = 916.0
+scale = Vector2(0.475113, 0.36246)
+texture_normal = ExtResource("4_mhnvy")
+
+[node name="language dropdown" type="OptionButton" parent="."]
+layout_mode = 0
+offset_left = 42.0
+offset_top = 20.0
+offset_right = 174.0
+offset_bottom = 56.0
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+selected = 0
+item_count = 2
+popup/item_0/text = "English"
+popup/item_0/id = 0
+popup/item_1/text = "日本語"
+popup/item_1/id = 1
+
+[connection signal="pressed" from="play button" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="quit button" to="." method="_on_quit_button_pressed"]
