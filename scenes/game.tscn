@@ -1,3 +1,12 @@
-[gd_scene format=3 uid="uid://bgs4sp1wbkexw"]
+[gd_scene load_steps=3 format=3 uid="uid://bgs4sp1wbkexw"]
+
+[ext_resource type="Script" uid="uid://dj4x0q5w55apa" path="res://scripts/letter.gd" id="1_uwrxv"]
+[ext_resource type="Script" uid="uid://dfyuvn4x4o5oh" path="res://scripts/locations/load_locations.gd" id="2_yqjtg"]
 
 [node name="game" type="Node2D"]
+
+[node name="letter" type="Node2D" parent="."]
+script = ExtResource("1_uwrxv")
+
+[node name="Node" type="Node" parent="."]
+script = ExtResource("2_yqjtg")

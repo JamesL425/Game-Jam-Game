@@ -1,0 +1,32 @@
+[gd_resource type="JSON" format=3 uid="uid://bgulfdsfp41sy"]
+
+[resource]
+data = [{
+"cities": [{
+"name": "London",
+"population": 1e+06,
+"streets": [{
+"length": 100.0,
+"name": "Flutemaker's Mews"
+}, {
+"length": 452.0,
+"name": "Fontaine Road"
+}, {
+"length": 192.0,
+"name": "Foxley Road"
+}, {
+"length": 12.0,
+"name": "Garden Lane"
+}, {
+"length": 20.0,
+"name": "Gordon Grove"
+}, {
+"length": 30.0,
+"name": "Cedar Close"
+}, {
+"length": 120.0,
+"name": "Cambria Road"
+}]
+}],
+"name": "England"
+}]
