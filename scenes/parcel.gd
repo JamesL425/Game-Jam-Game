@@ -86,8 +86,8 @@ var letter_open_scene: PackedScene = preload("res://scenes/letter_open_scene.tsc
 var box_open_scene: PackedScene
 func open():
 	if type == ParcelType.BOX:
-	#	pass
-	#else:
+		pass
+	else:
 		var open_letter = letter_open_scene.instantiate()
 		open_letter.get_node("Letter/Content/Content").text = letter_text
 		set_physics_process(false)

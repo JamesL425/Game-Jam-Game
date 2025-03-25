@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dkxsnmpdekxap"]
+
+[node name="Parcel Open Scene" type="MarginContainer"]
+
+[node name="background" type="ColorRect" parent="."]
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Parcel" type="ColorRect" parent="."]
+layout_mode = 2
+color = Color(0.447059, 0.384314, 0.294118, 1)
