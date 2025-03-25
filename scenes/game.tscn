@@ -50,6 +50,7 @@ parcel_scene = ExtResource("3_lbhrr")
 [node name="Camera2D" type="Camera2D" parent="game_content"]
 
 [node name="Background" type="Sprite2D" parent="game_content"]
+visible = false
 texture = SubResource("PlaceholderTexture2D_lnu2h")
 centered = false
 
