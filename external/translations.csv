@@ -1,5 +1,6 @@
 key,en,ja
 WINE,Wine,ワイン
-GLASS,Glass,TODO
-PLATE,Plate,TODO
-LETTER,Letter,TODO
+GLASS,Glass,グラス
+PLATE,Plate,皿
+LETTER,Letter,手紙
+PARCEL,Parcel,小包

@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://ym0wyuiecw4u"]
+[gd_scene load_steps=0 format=3 uid="uid://ym0wyuiecw4u"]
 
 [node name="LetterOpenScene" type="MarginContainer"]
 anchors_preset = 15
