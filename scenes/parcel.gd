@@ -20,7 +20,7 @@ var letter_text: String = "Hello, World"
 
 # for box
 var content: Array[ParcelContent];
-var declared_content: Array[String];
+var declared_content: Array[ParcelContent.Classification];
 
 @export var force_scale = 0.5;
 @export var letter_scale: Vector2 = Vector2(5, 2.5);
@@ -30,8 +30,6 @@ var declared_content: Array[String];
 
 var hitbox_scale_constant: Vector2;
 var sprite_scale_constant: Vector2;
-
-var prev_
 
 func resize(this_scale: Vector2) -> void:
 	sprite_scale_constant = Vector2($Sprite2D.texture.get_width(), $Sprite2D.texture.get_height())
@@ -45,33 +43,37 @@ func init_letter_parcel(in_has_stamp: bool) -> void:
 	has_stamp = in_has_stamp
 	$Label.text = AddressGenerator.create_address()
 	
-func init_box_parcel(in_content: Array[ParcelContent]) -> void:
+func init_box_parcel(in_content: Array[ParcelContent], in_declarations: Array[ParcelContent.Classification]) -> void:
 	$Sprite2D.texture = box_texture
 	resize(parcel_scale)
 	content = in_content
+	declared_content = in_declarations
 	$Label.text = "To: " + AddressGenerator.create_address() + "\n\n" + "From: " + AddressGenerator.create_address()
+	if content.any(func(c): return c.fragile):
+		$FragileLabel.show()
 
 var prev_velocity: Vector2 = Vector2(0, 0);
-var shake_accel: float = 10;
+var shake_accel: float = 1000;
 
-func momentary_accel_compute(dt: float, velocity: Vector2, prev_velocity: Vector2) -> void:
-	var accel = (velocity - prev_velocity) / dt
-	if (accel.length() > shake_accel):
-		print("shake")
+func momentary_accel_compute(dt: float, curr_velocity: Vector2, p_velocity: Vector2) -> void:
+	var accel = (curr_velocity - p_velocity) / dt
+	if (accel.length() > shake_accel && curr_velocity.dot(p_velocity) < 0):
 		if content.any(func(c): return c.category == ParcelContent.Category.GLASS):
 			$"Glass Sound".play()
 		if content.any(func(c): return c.category == ParcelContent.Category.METAL):
 			$"Metal Sound".play()
+		if content.any(func(c): return c.fragile):
+			print("Broke")
 
 func _physics_process(delta: float) -> void:
 	var m_pos = get_global_mouse_position()
 	if (picking):
-		var collision: KinematicCollision2D = move_and_collide(m_pos + picking_mouse_rel - position)
-		var velocity = m_pos + picking_mouse_rel - position
+		var curr_velocity = m_pos + picking_mouse_rel - position
+		var collision: KinematicCollision2D = move_and_collide(curr_velocity)
 		if collision:
-			velocity -= collision.get_remainder()
-		momentary_accel_compute(delta, velocity, prev_velocity)
-		prev_velocity = velocity
+			curr_velocity -= collision.get_remainder()
+		momentary_accel_compute(delta, curr_velocity, prev_velocity)
+		prev_velocity = curr_velocity
 		#global_transform.origin = m_pos - picking_mouse_rel
 
 func _on_mouse_entered() -> void:
@@ -80,17 +82,37 @@ func _on_mouse_entered() -> void:
 func _on_mouse_exited() -> void:
 	can_pick = false
 
+var UI_Path: String = "../../UI"
+
+var vertical_spacer: VBoxContainer
+
+func select() -> void:
+	picking = true
+	picking_mouse_rel = position - get_global_mouse_position()
+	freeze = true
+	if (type == ParcelType.BOX):
+		vertical_spacer = VBoxContainer.new();
+		for c in declared_content:
+			var label = Label.new()
+			label.text = str(ParcelContent.Classification.keys()[c])
+			vertical_spacer.add_child(label)
+		get_node(UI_Path).add_child(vertical_spacer)
+	
+func deselect() -> void:
+	picking = false
+	freeze = false
+	apply_impulse(force_scale * Input.get_last_mouse_velocity())
+	prev_velocity = Vector2(0, 0)
+	if (type == ParcelType.BOX):
+		vertical_spacer.queue_free()
+
 var is_open: bool = false
 
 func _input(event: InputEvent) -> void:
 	if (event.is_action_pressed("click") && can_pick):
-		picking = true
-		picking_mouse_rel = position - get_global_mouse_position()
-		freeze = true
+		select()
 	elif (event.is_action_released("click") && picking):
-		picking = false
-		freeze = false
-		apply_impulse(force_scale * Input.get_last_mouse_velocity())
+		deselect()
 		
 	if (picking && event.is_action_pressed("rclick")):
 		is_open = true;
@@ -102,19 +124,28 @@ func _input(event: InputEvent) -> void:
 var open_scene: Node;
 
 var letter_open_scene: PackedScene = preload("res://scenes/letter_open_scene.tscn")
-var box_open_scene: PackedScene
+var box_open_scene: PackedScene = preload("res://scenes/box_open_scene.tscn")
 func open():
 	if type == ParcelType.BOX:
-		pass
+		var open_box = box_open_scene.instantiate()
+		var label: Label
+		for c in content:
+			label = Label.new()
+			label.text = c.item_name
+			open_box.get_node("Box/Content").add_child(label)
+		set_physics_process(false)
+		get_node(UI_Path).add_child(open_box)
+		#get_node(UI_Path).show()
+		open_scene = open_box
 	else:
 		var open_letter = letter_open_scene.instantiate()
 		open_letter.get_node("Letter/Content/Content").text = letter_text
 		set_physics_process(false)
-		get_node("../../UI").add_child(open_letter)
-		get_node("../../UI").show()
+		get_node(UI_Path).add_child(open_letter)
+		#get_node(UI_Path).show()
 		open_scene = open_letter
 
 func close() -> void:
 	set_physics_process(true)
-	get_node("../../UI").hide()
+	#get_node(UI_Path).hide()
 	open_scene.queue_free()

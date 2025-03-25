@@ -1,5 +1,3 @@
-
-
 # incoming format
 # country
 #   city, population

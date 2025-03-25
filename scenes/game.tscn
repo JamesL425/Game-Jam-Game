@@ -1,10 +1,13 @@
-[gd_scene load_steps=22 format=3 uid="uid://bgs4sp1wbkexw"]
+[gd_scene load_steps=25 format=3 uid="uid://bgs4sp1wbkexw"]
 
 [ext_resource type="Script" uid="uid://bea3ejv1dy4x" path="res://scenes/game.gd" id="1_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://drtnfnqd4fser" path="res://scenes/parcel.tscn" id="3_lbhrr"]
+[ext_resource type="Texture2D" uid="uid://j0mmxkhagxim" path="res://textures/table.png" id="4_0tnpc"]
+[ext_resource type="Texture2D" uid="uid://cyu36ywt7d1se" path="res://textures/good_bin_fg.png" id="4_dinhu"]
 [ext_resource type="PackedScene" uid="uid://c6htbiehct4kv" path="res://scenes/basket.tscn" id="4_iywne"]
-[ext_resource type="Texture2D" uid="uid://dst7frihqlj5p" path="res://temp - REPLACE/table.jpg" id="4_lbhrr"]
 [ext_resource type="AudioStream" uid="uid://dlvkfn42mcxe4" path="res://music/Grand Old Rag.mp3" id="5_0tnpc"]
+[ext_resource type="Texture2D" uid="uid://dwcftur4564bj" path="res://textures/bin_bg.png" id="5_kvuet"]
+[ext_resource type="Texture2D" uid="uid://dqq7a3kqtbh0s" path="res://textures/bad_bin_fg.png" id="6_trtic"]
 [ext_resource type="AudioStream" uid="uid://ddpg54u4ul4j2" path="res://music/Turn Off Your Light Mister Moon Man-Jack Norworth and Nora Bayes.mp3" id="6_vtaks"]
 [ext_resource type="AudioStream" uid="uid://dise5ggbi5k6d" path="res://music/Scott Joplin- Swipesey Cakewalk.mp3" id="7_kvpfn"]
 [ext_resource type="AudioStream" uid="uid://p11sdfm5ftuh" path="res://music/1908 Haydn Quartet - Take Me Out To The Ball Game.mp3" id="8_dinhu"]
@@ -17,7 +20,7 @@ size = Vector2(1920, 1080)
 bounce = 0.05
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lbhrr"]
-size = Vector2(1236, 341)
+size = Vector2(1150, 324.5)
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_iywne"]
 bounce = 1.0
@@ -41,10 +44,9 @@ normal = Vector2(0, 1)
 distance = -555.07
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_gee14"]
-bounce = 1.0
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_u5sy4"]
-distance = -555.07
+distance = -803.89
 
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_trtic"]
 fade_time = 0.0
@@ -69,10 +71,16 @@ texture = SubResource("PlaceholderTexture2D_lnu2h")
 centered = false
 
 [node name="ApproveBasket" parent="game_content" instance=ExtResource("4_iywne")]
-position = Vector2(898, 779)
+position = Vector2(788, 630)
+scale = Vector2(0.727621, 0.727621)
+fg_texture = ExtResource("4_dinhu")
+bg_texture = ExtResource("5_kvuet")
 
 [node name="RejectBasket" parent="game_content" instance=ExtResource("4_iywne")]
-position = Vector2(-905, 776)
+position = Vector2(-796, 647)
+scale = Vector2(0.72, 0.72)
+fg_texture = ExtResource("6_trtic")
+bg_texture = ExtResource("5_kvuet")
 
 [node name="ParcelStartPosition" type="Marker2D" parent="game_content"]
 position = Vector2(-8, -426)
@@ -81,13 +89,13 @@ position = Vector2(-8, -426)
 physics_material_override = SubResource("PhysicsMaterial_lbhrr")
 
 [node name="tableCollision" type="CollisionShape2D" parent="game_content/table"]
-position = Vector2(-1, 354)
+position = Vector2(2, 362.25)
 shape = SubResource("RectangleShape2D_lbhrr")
 
 [node name="tableSprite" type="Sprite2D" parent="game_content/table"]
-position = Vector2(0, 354.5)
-scale = Vector2(0.71042, 0.348049)
-texture = ExtResource("4_lbhrr")
+position = Vector2(2.00001, 397)
+scale = Vector2(1.13083, 0.92)
+texture = ExtResource("4_0tnpc")
 
 [node name="Boundaries" type="Node2D" parent="game_content"]
 
@@ -122,6 +130,16 @@ offset_left = -960.0
 offset_top = -540.0
 offset_right = 960.0
 offset_bottom = 540.0
+mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="UI"]
+z_index = -10
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
 
 [node name="Background Music" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamPlaylist_trtic")
