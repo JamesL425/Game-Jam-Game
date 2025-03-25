@@ -13,10 +13,25 @@ func init_content() -> void:
 	wine_content.item_name = "WINE"
 	wine_content.category = ParcelContent.Category.GLASS
 	wine_content.fragile = true
+	glass_content.item_name = "WINE"
+	glass_content.category = ParcelContent.Category.GLASS
+	glass_content.fragile = true
 
+func generate_insides_of_parcel() -> Array[ParcelContent]:
+	var possible_contents = [wine_content,
+		glass_content]
+	
+	var out: Array[ParcelContent] = []
+		
+	for i in randi_range(1, 3):
+		out.append(possible_contents.pick_random())
+	
+	print(out)
+	return out
+	
 func make_random_parcel() -> Parcel:
 	var p: Parcel = parcel.instantiate()
-	p.init_box_parcel([wine_content])
+	p.init_box_parcel(generate_insides_of_parcel())
 	return p
 
 

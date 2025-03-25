@@ -1,6 +1,7 @@
 extends RigidBody2D
 
 class_name Parcel;
+signal shake;
 
 var can_pick: bool = false;
 var picking: bool = false;
@@ -99,3 +100,7 @@ func close() -> void:
 	set_physics_process(true)
 	get_node("../../UI").hide()
 	open_scene.queue_free()
+
+func _on_shake() -> void:
+	# TODO: get correct sound based on what item it is
+	pass # Replace with function body.
