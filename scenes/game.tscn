@@ -18,15 +18,16 @@ script = ExtResource("2_yqjtg")
 locations_json = ExtResource("3_lnu2h")
 
 [node name="Background" type="Sprite2D" parent="."]
-visible = false
 texture = SubResource("PlaceholderTexture2D_lnu2h")
 centered = false
 
 [node name="ApproveBasket" parent="." instance=ExtResource("4_iywne")]
-visible = false
+position = Vector2(100, 0)
+scale = Vector2(15, 15)
 
 [node name="RejectBasket" parent="." instance=ExtResource("4_iywne")]
-visible = false
+position = Vector2(10, 10)
+scale = Vector2(100, 100)
 
 [node name="ParcelStartPosition" type="Marker2D" parent="."]
 position = Vector2(500, 500)

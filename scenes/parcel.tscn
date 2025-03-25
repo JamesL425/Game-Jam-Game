@@ -6,7 +6,7 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_40veq"]
 
-[node name="Parcel" type="RigidBody2D"]
+[node name="Parcel" type="RigidBody2D" groups=["parcel_group"]]
 script = ExtResource("1_40veq")
 
 [node name="ParcelSprite" type="AnimatedSprite2D" parent="."]
