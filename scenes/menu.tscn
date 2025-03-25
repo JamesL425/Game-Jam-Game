@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://d0mv0fqhkbhih"]
+[gd_scene load_steps=6 format=3 uid="uid://d0mv0fqhkbhih"]
 
 [ext_resource type="Script" uid="uid://p7bqphv5000d" path="res://scripts/menu.gd" id="1_yqeox"]
 [ext_resource type="Texture2D" uid="uid://2cry31fjeqlp" path="res://temp - REPLACE/menu_bg.png" id="2_vjb58"]
 [ext_resource type="Texture2D" uid="uid://dfmmqv5cfsq8h" path="res://temp - REPLACE/play_button.png" id="3_con2f"]
 [ext_resource type="Texture2D" uid="uid://0ssjlv3ila86" path="res://temp - REPLACE/quit_button.png" id="4_mhnvy"]
+[ext_resource type="AudioStream" uid="uid://swucxoq5gyxy" path="res://music/In the Good Old Summer Time - Haydn Quartet (1903).mp3" id="5_4ytvr"]
 
 [node name="root" type="MarginContainer"]
 anchors_preset = 15
@@ -64,7 +65,9 @@ popup/item_1/id = 1
 [node name="PanelContainer" type="Panel" parent="MarginContainer/HSplitContainer"]
 layout_mode = 2
 
-[node name="Menu Music" type="AudioStreamPlayer2D" parent="."]
+[node name="Menu Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_4ytvr")
+parameters/looping = true
 
 [connection signal="pressed" from="MarginContainer/HSplitContainer/CenterContainer/VSplitContainer/play button" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="MarginContainer/HSplitContainer/CenterContainer/VSplitContainer/quit button" to="." method="_on_quit_button_pressed"]

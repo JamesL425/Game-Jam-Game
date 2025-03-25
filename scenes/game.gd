@@ -21,6 +21,7 @@ func spawn_parcel() -> void:
 
 func _ready() -> void:
 	current_day = GlobalDaysList.day0;
+	$"Background Music".play()
 	spawn_parcel()
 	$UI.hide();
 	
