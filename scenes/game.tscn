@@ -53,10 +53,10 @@ texture = SubResource("PlaceholderTexture2D_lnu2h")
 centered = false
 
 [node name="ApproveBasket" parent="." instance=ExtResource("4_iywne")]
-position = Vector2(898, 673)
+position = Vector2(911, 787)
 
 [node name="RejectBasket" parent="." instance=ExtResource("4_iywne")]
-position = Vector2(-905, 682)
+position = Vector2(-907, 774)
 
 [node name="ParcelStartPosition" type="Marker2D" parent="."]
 position = Vector2(-8, -426)

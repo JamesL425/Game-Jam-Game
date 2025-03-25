@@ -10,3 +10,4 @@ func _on_body_entered(body: Node2D) -> void:
 		else:
 			if (!body.shouldReject):
 				print("correct")
+		body.queue_free()

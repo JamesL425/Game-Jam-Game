@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://drtnfnqd4fser"]
+[gd_scene load_steps=7 format=3 uid="uid://drtnfnqd4fser"]
 
 [ext_resource type="Script" uid="uid://b463qnb3db7mp" path="res://scenes/parcel.gd" id="1_40veq"]
 [ext_resource type="Texture2D" uid="uid://bbdyt062uf5bt" path="res://temp - REPLACE/letter_bg.png" id="4_3o1h4"]
@@ -9,6 +9,9 @@ bounce = 0.08
 [sub_resource type="SpriteFrames" id="SpriteFrames_ohc0n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_40veq"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_fve4f"]
+font_color = Color(0, 0, 0, 1)
 
 [node name="Parcel" type="RigidBody2D"]
 input_pickable = true
@@ -29,14 +32,25 @@ texture = ExtResource("4_3o1h4")
 scale = Vector2(10, 10)
 shape = SubResource("RectangleShape2D_40veq")
 
-[node name="Label" type="Label" parent="."]
-offset_left = -53.0
-offset_top = -66.0
-offset_right = 44.0
-offset_bottom = -16.0
+[node name="Address" type="Label" parent="."]
+offset_left = -61.0
+offset_top = -98.0
+offset_right = 99.0
+offset_bottom = 71.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 16
 text = "Hello World"
+label_settings = SubResource("LabelSettings_fve4f")
+autowrap_mode = 2
+
+[node name="Fragile" type="Label" parent="."]
+offset_left = -95.0
+offset_top = 66.0
+offset_right = -11.0
+offset_bottom = 96.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 21
+text = "FRAGILE"
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
