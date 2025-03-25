@@ -67,7 +67,7 @@ layout_mode = 2
 
 [node name="Menu Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_4ytvr")
-volume_db = -32.215
+volume_db = -14.006
 parameters/looping = true
 
 [connection signal="pressed" from="MarginContainer/HSplitContainer/CenterContainer/VSplitContainer/play button" to="." method="_on_play_button_pressed"]
