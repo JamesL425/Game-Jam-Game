@@ -52,10 +52,10 @@ texture = SubResource("PlaceholderTexture2D_lnu2h")
 centered = false
 
 [node name="ApproveBasket" parent="." instance=ExtResource("4_iywne")]
-position = Vector2(898, 673)
+position = Vector2(898, 779)
 
 [node name="RejectBasket" parent="." instance=ExtResource("4_iywne")]
-position = Vector2(-905, 682)
+position = Vector2(-905, 776)
 
 [node name="ParcelStartPosition" type="Marker2D" parent="."]
 position = Vector2(-8, -426)
@@ -98,4 +98,5 @@ physics_material_override = SubResource("PhysicsMaterial_gee14")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/BottomWall"]
 shape = SubResource("WorldBoundaryShape2D_u5sy4")
 
-[connection signal="parcel_resolved" from="." to="." method="_on_parcel_resolved"]
+[connection signal="parcel_collected" from="ApproveBasket" to="." method="_on_approve_basket_parcel_collected"]
+[connection signal="parcel_collected" from="RejectBasket" to="." method="_on_reject_basket_parcel_collected"]

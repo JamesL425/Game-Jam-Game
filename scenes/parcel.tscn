@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://drtnfnqd4fser"]
+[gd_scene load_steps=7 format=3 uid="uid://drtnfnqd4fser"]
 
 [ext_resource type="Script" uid="uid://b463qnb3db7mp" path="res://scenes/parcel.gd" id="1_40veq"]
 [ext_resource type="Script" uid="uid://bni1lkhoe3l" path="res://scripts/parcel_content.gd" id="3_7w5s1"]
@@ -43,14 +43,17 @@ text = "Hello World"
 
 [node name="Wine" type="Node2D" parent="Contents"]
 script = ExtResource("3_7w5s1")
+item_name = "WINE"
 fragile = true
 
 [node name="Glassware" type="Node2D" parent="Contents"]
 script = ExtResource("3_7w5s1")
+item_name = "GLASS"
 fragile = true
 
 [node name="Plate" type="Node2D" parent="Contents"]
 script = ExtResource("3_7w5s1")
+item_name = "PLATE"
 category = 3
 fragile = true
 

@@ -14,3 +14,6 @@ enum Category {
 @export var item_name: String;
 @export var category: Category;
 @export var fragile: bool;
+
+func _ready() -> void:
+	print(tr(item_name))

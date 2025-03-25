@@ -1,17 +1,27 @@
 extends Node2D
 
-signal parcel_resolved
-
 @export var parcel_scene: PackedScene
 
-func _on_parcel_resolved() -> void:
-	get_tree().call_group("parcel_group", "queue_free")
-	var parcel = parcel_scene.instantiate()
+var current_day: Day;
+var parcel_index = 0;
+
+func spawn_parcel() -> void:
+	if (current_day.done()):
+		# TODO: new day
+		pass
+	
+	#get_tree().call_group("parcel_group", "queue_free")
+	
+	#var parcel = parcel_scene.instantiate()
+	var parcel = current_day.next_parcel()
 	parcel.position = $ParcelStartPosition.position
-	add_child(parcel)
+	parcel.name = "Parcel" + str(parcel_index)
+	parcel_index += 1
+	call_deferred("add_child", parcel)
 
 func _ready() -> void:
-	new_game()
+	current_day = GlobalDaysList.day0;
+	spawn_parcel()
 
 func new_game():
 	var parcel = parcel_scene.instantiate()
@@ -19,4 +29,15 @@ func new_game():
 	add_child(parcel)
 	
 func game_over():
-	pass	
+	pass
+
+func _on_approve_basket_parcel_collected(correct: bool) -> void:
+	if correct:
+		print("correct")
+	spawn_parcel()
+
+
+func _on_reject_basket_parcel_collected(correct: bool) -> void:
+	if correct:
+		print("correct")
+	spawn_parcel()

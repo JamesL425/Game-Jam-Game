@@ -1,5 +1,8 @@
 extends Control
 
+func _ready() -> void:
+	TranslationServer.set_locale("en");
+
 func _on_play_button_pressed() -> void:
 	# TODO: Load before?
 	get_tree().change_scene_to_file("res://scenes/game.tscn");

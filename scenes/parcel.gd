@@ -1,5 +1,7 @@
 extends RigidBody2D
 
+class_name Parcel;
+
 var can_pick: bool = false;
 var picking: bool = false;
 var picking_mouse_rel: Vector2;

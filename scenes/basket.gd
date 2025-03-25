@@ -1,12 +1,13 @@
 extends Area2D
 
+signal parcel_collected
+
 func _on_body_entered(body: Node2D) -> void:
-	print(body.name)
 	# TODO: fragile as fuck
-	if (body.name == "Parcel"):
+	if (body.name.begins_with("Parcel")):
+		var was_correct: bool
 		if (name == "RejectBasket"):
-			if body.shouldReject:
-				print("correct")
+			was_correct = body.shouldReject
 		else:
-			if (!body.shouldReject):
-				print("correct")
+			was_correct = !body.shouldReject
+		emit_signal("parcel_collected", was_correct)
