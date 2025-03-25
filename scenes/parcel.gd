@@ -32,6 +32,8 @@ var declared_content: Array[String];
 var hitbox_scale_constant: Vector2;
 var sprite_scale_constant: Vector2;
 
+var prev_
+
 func resize(this_scale: Vector2) -> void:
 	sprite_scale_constant = Vector2($Sprite2D.texture.get_width(), $Sprite2D.texture.get_height())
 	hitbox_scale_constant = $Hitbox.shape.get_size()
@@ -50,10 +52,24 @@ func init_box_parcel(in_content: Array[ParcelContent]) -> void:
 	content = in_content
 	$Label.text = "To: " + AddressGenerator.create_address() + "\n\n" + "From: " + AddressGenerator.create_address()
 
-func _physics_process(_delta: float) -> void:
+var prev_velocity: Vector2 = Vector2(0, 0);
+var shake_accel: float = 10;
+
+func momentary_accel_compute(dt: float, velocity: Vector2, prev_velocity: Vector2) -> void:
+	var accel = (velocity - prev_velocity) / dt
+	if (accel.length() > shake_accel):
+		print("shake")
+		pass
+
+func _physics_process(delta: float) -> void:
 	var m_pos = get_global_mouse_position()
 	if (picking):
-		move_and_collide(m_pos + picking_mouse_rel - position)
+		var collision: KinematicCollision2D = move_and_collide(m_pos + picking_mouse_rel - position)
+		var velocity = m_pos + picking_mouse_rel - position
+		if collision:
+			velocity -= collision.get_remainder()
+		momentary_accel_compute(delta, velocity, prev_velocity)
+		prev_velocity = velocity
 		#global_transform.origin = m_pos - picking_mouse_rel
 
 func _on_mouse_entered() -> void:
