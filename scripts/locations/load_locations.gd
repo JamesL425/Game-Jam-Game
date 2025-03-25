@@ -1,12 +1,13 @@
 extends Node
 
-@export var locations_json: JSON;
+var locations_json: JSON;
 
 var locations: Variant;
 
 @onready var rng: RandomNumberGenerator = RandomNumberGenerator.new();
 
 func _ready() -> void:
+	locations_json = load("res://resources/locations.tres")
 	locations = locations_json.get_data()
 	rng.randomize()
 	print(locations)
