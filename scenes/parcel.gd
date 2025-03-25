@@ -103,4 +103,5 @@ func close() -> void:
 
 func _on_shake() -> void:
 	# TODO: get correct sound based on what item it is
+	$"Placeholder Sound Effect".play()
 	pass # Replace with function body.

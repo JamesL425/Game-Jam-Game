@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://drtnfnqd4fser"]
+[gd_scene load_steps=7 format=3 uid="uid://drtnfnqd4fser"]
 
 [ext_resource type="Script" uid="uid://b463qnb3db7mp" path="res://scenes/parcel.gd" id="1_40veq"]
 [ext_resource type="Script" uid="uid://bni1lkhoe3l" path="res://scripts/parcel_content.gd" id="3_7w5s1"]
+[ext_resource type="AudioStream" uid="uid://de8fhg5fndpp8" path="res://sound_fx/caps many hit floor 3.wav" id="4_2fs4e"]
 [ext_resource type="Texture2D" uid="uid://bbdyt062uf5bt" path="res://temp - REPLACE/letter_bg.png" id="4_3o1h4"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_fve4f"]
@@ -49,6 +50,9 @@ script = ExtResource("3_7w5s1")
 item_name = "PLATE"
 category = 3
 fragile = true
+
+[node name="Placeholder Sound Effect" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_2fs4e")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
