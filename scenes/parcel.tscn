@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://drtnfnqd4fser"]
+[gd_scene load_steps=8 format=3 uid="uid://drtnfnqd4fser"]
 
 [ext_resource type="Script" uid="uid://b463qnb3db7mp" path="res://scenes/parcel.gd" id="1_40veq"]
+[ext_resource type="Script" uid="uid://bni1lkhoe3l" path="res://scripts/parcel_content.gd" id="3_7w5s1"]
 [ext_resource type="Texture2D" uid="uid://bbdyt062uf5bt" path="res://temp - REPLACE/letter_bg.png" id="4_3o1h4"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_fve4f"]
@@ -37,6 +38,21 @@ offset_bottom = -16.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 16
 text = "Hello World"
+
+[node name="Contents" type="Node" parent="."]
+
+[node name="Wine" type="Node2D" parent="Contents"]
+script = ExtResource("3_7w5s1")
+fragile = true
+
+[node name="Glassware" type="Node2D" parent="Contents"]
+script = ExtResource("3_7w5s1")
+fragile = true
+
+[node name="Plate" type="Node2D" parent="Contents"]
+script = ExtResource("3_7w5s1")
+category = 3
+fragile = true
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
