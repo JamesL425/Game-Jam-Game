@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://br40d4ju6hb4c"
-path="res://.godot/imported/umbrella close 8.wav-8ada73f6d2ff228a4feb427d893b7284.sample"
+path="res://.godot/imported/umbrella close 8.wav-e1cd5988aef20f512852f747a204b365.sample"
 
 [deps]
 
-source_file="res://Sound FX/umbrella close 8.wav"
-dest_files=["res://.godot/imported/umbrella close 8.wav-8ada73f6d2ff228a4feb427d893b7284.sample"]
+source_file="res://sound_fx/umbrella close 8.wav"
+dest_files=["res://.godot/imported/umbrella close 8.wav-e1cd5988aef20f512852f747a204b365.sample"]
 
 [params]
 

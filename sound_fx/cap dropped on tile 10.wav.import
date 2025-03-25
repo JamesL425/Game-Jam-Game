@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://h0eiyql7fk2g"
-path="res://.godot/imported/cap dropped on tile 10.wav-11ef5089215b7c1385594ea1a4b3d991.sample"
+path="res://.godot/imported/cap dropped on tile 10.wav-e6c57889ba816726e2df8d85b3263279.sample"
 
 [deps]
 
-source_file="res://Sound FX/cap dropped on tile 10.wav"
-dest_files=["res://.godot/imported/cap dropped on tile 10.wav-11ef5089215b7c1385594ea1a4b3d991.sample"]
+source_file="res://sound_fx/cap dropped on tile 10.wav"
+dest_files=["res://.godot/imported/cap dropped on tile 10.wav-e6c57889ba816726e2df8d85b3263279.sample"]
 
 [params]
 

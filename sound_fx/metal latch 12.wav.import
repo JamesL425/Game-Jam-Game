@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://q3ptw5a0gi5d"
-path="res://.godot/imported/metal latch 12.wav-aecd4094efeca72e87a13e5d18f1b189.sample"
+path="res://.godot/imported/metal latch 12.wav-ec8bfde643f81c0df01ce8216a467bbc.sample"
 
 [deps]
 
-source_file="res://Sound FX/metal latch 12.wav"
-dest_files=["res://.godot/imported/metal latch 12.wav-aecd4094efeca72e87a13e5d18f1b189.sample"]
+source_file="res://sound_fx/metal latch 12.wav"
+dest_files=["res://.godot/imported/metal latch 12.wav-ec8bfde643f81c0df01ce8216a467bbc.sample"]
 
 [params]
 

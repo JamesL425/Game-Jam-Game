@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://mnoh0yogqi7a"
-path="res://.godot/imported/cap falling on caps 11.wav-0477f0e207e0a60cdaf49d2754b82344.sample"
+path="res://.godot/imported/cap falling on caps 11.wav-662b7a048e1c082ddc01caa71ff2f7cf.sample"
 
 [deps]
 
-source_file="res://Sound FX/cap falling on caps 11.wav"
-dest_files=["res://.godot/imported/cap falling on caps 11.wav-0477f0e207e0a60cdaf49d2754b82344.sample"]
+source_file="res://sound_fx/cap falling on caps 11.wav"
+dest_files=["res://.godot/imported/cap falling on caps 11.wav-662b7a048e1c082ddc01caa71ff2f7cf.sample"]
 
 [params]
 
