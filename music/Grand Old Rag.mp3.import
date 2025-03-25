@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dlvkfn42mcxe4"
+path="res://.godot/imported/Grand Old Rag.mp3-34adc5850286e8a7f5627440f8efba4b.mp3str"
+
+[deps]
+
+source_file="res://music/Grand Old Rag.mp3"
+dest_files=["res://.godot/imported/Grand Old Rag.mp3-34adc5850286e8a7f5627440f8efba4b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dise5ggbi5k6d"
+path="res://.godot/imported/Scott Joplin- Swipesey Cakewalk.mp3-b99602a76aa87b34b178e7ab9c65dfbb.mp3str"
+
+[deps]
+
+source_file="res://music/Scott Joplin- Swipesey Cakewalk.mp3"
+dest_files=["res://.godot/imported/Scott Joplin- Swipesey Cakewalk.mp3-b99602a76aa87b34b178e7ab9c65dfbb.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

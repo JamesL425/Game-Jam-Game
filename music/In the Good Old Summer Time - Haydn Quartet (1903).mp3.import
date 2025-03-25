@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://swucxoq5gyxy"
+path="res://.godot/imported/In the Good Old Summer Time - Haydn Quartet (1903).mp3-c31004824bf57d8c78c435cd17c36e29.mp3str"
+
+[deps]
+
+source_file="res://music/In the Good Old Summer Time - Haydn Quartet (1903).mp3"
+dest_files=["res://.godot/imported/In the Good Old Summer Time - Haydn Quartet (1903).mp3-c31004824bf57d8c78c435cd17c36e29.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
