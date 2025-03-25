@@ -60,6 +60,8 @@ func momentary_accel_compute(dt: float, velocity: Vector2, prev_velocity: Vector
 		print("shake")
 		if content.any(func(c): return c.category == ParcelContent.Category.GLASS):
 			$"Glass Sound".play()
+		if content.any(func(c): return c.category == ParcelContent.Category.METAL):
+			$"Metal Sound".play()
 
 func _physics_process(delta: float) -> void:
 	var m_pos = get_global_mouse_position()

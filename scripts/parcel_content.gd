@@ -6,7 +6,8 @@ enum Category {
 	GLASS,
 	SOFT,
 	PLASTIC,
-	CHINA
+	CHINA,
+	METAL
 };
 
 # NOTE: use name

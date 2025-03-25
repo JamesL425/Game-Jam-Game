@@ -125,7 +125,7 @@ offset_bottom = 540.0
 
 [node name="Background Music" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamPlaylist_trtic")
-volume_db = -23.719
+volume_db = -20.435
 
 [connection signal="parcel_collected" from="game_content/ApproveBasket" to="." method="_on_approve_basket_parcel_collected"]
 [connection signal="parcel_collected" from="game_content/RejectBasket" to="." method="_on_reject_basket_parcel_collected"]

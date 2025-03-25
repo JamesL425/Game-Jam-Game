@@ -10,8 +10,8 @@ var wine_content = ParcelContent.new()
 var glass_content = ParcelContent.new()
 
 func init_content() -> void:
-	wine_content.item_name = "WINE"
-	wine_content.category = ParcelContent.Category.GLASS
+	wine_content.item_name = "METAL"
+	wine_content.category = ParcelContent.Category.METAL
 	wine_content.fragile = true
 	glass_content.item_name = "WINE"
 	glass_content.category = ParcelContent.Category.GLASS
@@ -25,8 +25,8 @@ func generate_insides_of_parcel() -> Array[ParcelContent]:
 		
 	for i in randi_range(1, 3):
 		out.append(possible_contents.pick_random())
-	
-	print(out)
+		print(out[i].item_name)
+		
 	return out
 	
 func make_random_parcel() -> Parcel:
