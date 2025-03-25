@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://ym0wyuiecw4u"]
+
+[node name="LetterOpenScene" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Letter" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Left" type="Control" parent="Letter"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="Content" type="VBoxContainer" parent="Letter"]
+layout_mode = 2
+
+[node name="Top" type="Control" parent="Letter/Content"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Letter/Content"]
+layout_mode = 2
+text = "LETTER"
+
+[node name="Content" type="Label" parent="Letter/Content"]
+layout_mode = 2
+text = "This is test content"
+
+[node name="Bottom" type="Control" parent="Letter/Content"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="Right" type="Control" parent="Letter"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2

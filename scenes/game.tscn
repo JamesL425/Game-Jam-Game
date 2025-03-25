@@ -45,58 +45,68 @@ distance = -555.07
 script = ExtResource("1_lbhrr")
 parcel_scene = ExtResource("3_lbhrr")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="game_content" type="Node2D" parent="."]
 
-[node name="Background" type="Sprite2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="game_content"]
+
+[node name="Background" type="Sprite2D" parent="game_content"]
 texture = SubResource("PlaceholderTexture2D_lnu2h")
 centered = false
 
-[node name="ApproveBasket" parent="." instance=ExtResource("4_iywne")]
+[node name="ApproveBasket" parent="game_content" instance=ExtResource("4_iywne")]
 position = Vector2(898, 779)
 
-[node name="RejectBasket" parent="." instance=ExtResource("4_iywne")]
+[node name="RejectBasket" parent="game_content" instance=ExtResource("4_iywne")]
 position = Vector2(-905, 776)
 
-[node name="ParcelStartPosition" type="Marker2D" parent="."]
+[node name="ParcelStartPosition" type="Marker2D" parent="game_content"]
 position = Vector2(-8, -426)
 
-[node name="table" type="StaticBody2D" parent="."]
+[node name="table" type="StaticBody2D" parent="game_content"]
 physics_material_override = SubResource("PhysicsMaterial_lbhrr")
 
-[node name="tableCollision" type="CollisionShape2D" parent="table"]
+[node name="tableCollision" type="CollisionShape2D" parent="game_content/table"]
 position = Vector2(-1, 354)
 shape = SubResource("RectangleShape2D_lbhrr")
 
-[node name="tableSprite" type="Sprite2D" parent="table"]
+[node name="tableSprite" type="Sprite2D" parent="game_content/table"]
 position = Vector2(0, 354.5)
 scale = Vector2(0.71042, 0.348049)
 texture = ExtResource("4_lbhrr")
 
-[node name="Boundaries" type="Node2D" parent="."]
+[node name="Boundaries" type="Node2D" parent="game_content"]
 
-[node name="RightWall" type="StaticBody2D" parent="Boundaries"]
+[node name="RightWall" type="StaticBody2D" parent="game_content/Boundaries"]
 physics_material_override = SubResource("PhysicsMaterial_iywne")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/RightWall"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="game_content/Boundaries/RightWall"]
 shape = SubResource("WorldBoundaryShape2D_lbhrr")
 
-[node name="LeftWall" type="StaticBody2D" parent="Boundaries"]
+[node name="LeftWall" type="StaticBody2D" parent="game_content/Boundaries"]
 physics_material_override = SubResource("PhysicsMaterial_p57ef")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/LeftWall"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="game_content/Boundaries/LeftWall"]
 shape = SubResource("WorldBoundaryShape2D_iywne")
 
-[node name="TopWall" type="StaticBody2D" parent="Boundaries"]
+[node name="TopWall" type="StaticBody2D" parent="game_content/Boundaries"]
 physics_material_override = SubResource("PhysicsMaterial_u5sy4")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/TopWall"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="game_content/Boundaries/TopWall"]
 shape = SubResource("WorldBoundaryShape2D_p57ef")
 
-[node name="BottomWall" type="StaticBody2D" parent="Boundaries"]
+[node name="BottomWall" type="StaticBody2D" parent="game_content/Boundaries"]
 physics_material_override = SubResource("PhysicsMaterial_gee14")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/BottomWall"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="game_content/Boundaries/BottomWall"]
 shape = SubResource("WorldBoundaryShape2D_u5sy4")
 
-[connection signal="parcel_collected" from="ApproveBasket" to="." method="_on_approve_basket_parcel_collected"]
-[connection signal="parcel_collected" from="RejectBasket" to="." method="_on_reject_basket_parcel_collected"]
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+
+[connection signal="parcel_collected" from="game_content/ApproveBasket" to="." method="_on_approve_basket_parcel_collected"]
+[connection signal="parcel_collected" from="game_content/RejectBasket" to="." method="_on_reject_basket_parcel_collected"]

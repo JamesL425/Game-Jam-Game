@@ -15,5 +15,7 @@ enum Category {
 @export var category: Category;
 @export var fragile: bool;
 
-func _ready() -> void:
-	print(tr(item_name))
+func init() -> Node:
+	var label: Label = Label.new()
+	label.text = tr(item_name)
+	return label

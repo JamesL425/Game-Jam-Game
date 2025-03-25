@@ -14,19 +14,15 @@ func spawn_parcel() -> void:
 	
 	#var parcel = parcel_scene.instantiate()
 	var parcel = current_day.next_parcel()
-	parcel.position = $ParcelStartPosition.position
+	parcel.position = $game_content/ParcelStartPosition.position
 	parcel.name = "Parcel" + str(parcel_index)
 	parcel_index += 1
-	call_deferred("add_child", parcel)
+	$game_content.call_deferred("add_child", parcel)
 
 func _ready() -> void:
 	current_day = GlobalDaysList.day0;
 	spawn_parcel()
-
-func new_game():
-	var parcel = parcel_scene.instantiate()
-	parcel.position = $ParcelStartPosition.position
-	add_child(parcel)
+	$UI.hide();
 	
 func game_over():
 	pass

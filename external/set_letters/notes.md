@@ -1,6 +1,6 @@
 # disclaimer 
 
-Although based on real events and people, all of the events of the game are fiction and should be treated as such
+Although based on real events and people, all of the characters and events of the game are fiction and should be treated as such.
 
 # names of suffragettes
 change to fake names i think
@@ -40,3 +40,33 @@ fixed content:
 stones for the japanese exhibition
 
 # day 3
+8 packages
+2 letters
+
+Letter 1:
+To: emmeline pankhurst
+From: christabel pankhurst
+Christabel,
+I understand and will make haste. I have made contact with Annie, and propose we meet at the cafe on Thursday to ensure we have aligned our intents. I propose 11am. The production of the package is proceeding as planned, and I trust you will keep yourself up to date. We should avoid talking too much, many eyes already watch our every step.
+
+Yours,
+Emmeline
+
+Letter 2:
+To: annie kenney
+From: christabel pankhurst
+Annie,
+We are to proceed with the plan as discussed with the target of next Tuesday. I have proposed with my sister that we convene in the cafe to confirm the details and push ahead.
+Stay safe,
+Christabel
+
+# day 4
+News:
+Titanic:
+A ship greater than no other, which cannot by the greatest forces on Earth be sunk. Production is underway in Ireland, with plans to sail in the next year. Tickets are available for a new york destination.
+Suffragette activity at a political rally
+Suffragists distance themselves from terrorists
+
+10 packages
+
+# day 5
