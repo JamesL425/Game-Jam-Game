@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://hcwi3idnmuvv"
+path="res://.godot/imported/plastic jar of caps hit ground 6.wav-287e8f5210aef832a1295b4b8bbcc03c.sample"
+
+[deps]
+
+source_file="res://Sound FX/plastic jar of caps hit ground 6.wav"
+dest_files=["res://.godot/imported/plastic jar of caps hit ground 6.wav-287e8f5210aef832a1295b4b8bbcc03c.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

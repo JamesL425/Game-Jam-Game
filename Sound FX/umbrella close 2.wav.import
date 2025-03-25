@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c35lrmfnvx60s"
+path="res://.godot/imported/umbrella close 2.wav-c332351ab8bfda44044812e9d820a123.sample"
+
+[deps]
+
+source_file="res://Sound FX/umbrella close 2.wav"
+dest_files=["res://.godot/imported/umbrella close 2.wav-c332351ab8bfda44044812e9d820a123.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
