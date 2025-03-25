@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://p11sdfm5ftuh"
+path="res://.godot/imported/1908 Haydn Quartet - Take Me Out To The Ball Game.mp3-8c1883880672e60dbbe37618b9beef7f.mp3str"
+
+[deps]
+
+source_file="res://music/1908 Haydn Quartet - Take Me Out To The Ball Game.mp3"
+dest_files=["res://.godot/imported/1908 Haydn Quartet - Take Me Out To The Ball Game.mp3-8c1883880672e60dbbe37618b9beef7f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
