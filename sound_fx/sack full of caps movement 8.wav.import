@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://djlvmpein2oel"
-path="res://.godot/imported/sack full of caps movement 8.wav-38e07f2d3ddfc2f4410a0ffc8c7ca3be.sample"
+path="res://.godot/imported/sack full of caps movement 8.wav-700a0cdaeea588c70161be64a06bcc62.sample"
 
 [deps]
 
-source_file="res://Sound FX/sack full of caps movement 8.wav"
-dest_files=["res://.godot/imported/sack full of caps movement 8.wav-38e07f2d3ddfc2f4410a0ffc8c7ca3be.sample"]
+source_file="res://sound_fx/sack full of caps movement 8.wav"
+dest_files=["res://.godot/imported/sack full of caps movement 8.wav-700a0cdaeea588c70161be64a06bcc62.sample"]
 
 [params]
 

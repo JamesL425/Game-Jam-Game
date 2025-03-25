@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bejndj2yy0jsp"
-path="res://.godot/imported/cap dropped on plastic 4.wav-de2a09aa49026fb1fac1e02e127412d0.sample"
+path="res://.godot/imported/cap dropped on plastic 4.wav-7055a8ccad59248aaf42d1a5a66cc294.sample"
 
 [deps]
 
-source_file="res://Sound FX/cap dropped on plastic 4.wav"
-dest_files=["res://.godot/imported/cap dropped on plastic 4.wav-de2a09aa49026fb1fac1e02e127412d0.sample"]
+source_file="res://sound_fx/cap dropped on plastic 4.wav"
+dest_files=["res://.godot/imported/cap dropped on plastic 4.wav-7055a8ccad59248aaf42d1a5a66cc294.sample"]
 
 [params]
 

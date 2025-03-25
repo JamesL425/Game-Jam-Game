@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://d2kclj54dmeh7"
-path="res://.godot/imported/metal case open 2.wav-e1e1e2b0e19bf6b2bfceb1892094db5b.sample"
+path="res://.godot/imported/metal case open 2.wav-1c86c24cebbcef951351654415a7787a.sample"
 
 [deps]
 
-source_file="res://Sound FX/metal case open 2.wav"
-dest_files=["res://.godot/imported/metal case open 2.wav-e1e1e2b0e19bf6b2bfceb1892094db5b.sample"]
+source_file="res://sound_fx/metal case open 2.wav"
+dest_files=["res://.godot/imported/metal case open 2.wav-1c86c24cebbcef951351654415a7787a.sample"]
 
 [params]
 

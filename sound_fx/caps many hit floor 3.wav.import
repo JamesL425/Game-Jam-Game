@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://de8fhg5fndpp8"
-path="res://.godot/imported/caps many hit floor 3.wav-2d917222589e6353b6e8d698207b5083.sample"
+path="res://.godot/imported/caps many hit floor 3.wav-149895db6908881a1c4a399b8f5c7f54.sample"
 
 [deps]
 
-source_file="res://Sound FX/caps many hit floor 3.wav"
-dest_files=["res://.godot/imported/caps many hit floor 3.wav-2d917222589e6353b6e8d698207b5083.sample"]
+source_file="res://sound_fx/caps many hit floor 3.wav"
+dest_files=["res://.godot/imported/caps many hit floor 3.wav-149895db6908881a1c4a399b8f5c7f54.sample"]
 
 [params]
 
