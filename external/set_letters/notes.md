@@ -12,6 +12,17 @@ need to pick address for each of:
 - daisy solomon
 - elspeth mccelland
 
+# introduction
+setting: Jan 1st 1910, London. You just finished school
+Dialog with Mum maybe?
+Mum: "{name}! It's time you go get a job!"
+... you go look for a job ...
+Shady person (big post person): "So you're looking for a job? I've got one for you..."
+//
+You start your first day at the post office.
+{tutorial here for gameplay mechanics} // can be done as a dialog with the shady person
+"put the good ones in the left, and the bad ones in the right. open any parcels you're unsure of..."
+
 # day 1
 9 packages
 1 letter
@@ -70,3 +81,5 @@ Suffragists distance themselves from terrorists
 10 packages
 
 # day 5
+10 packages
+Boss checks in on you

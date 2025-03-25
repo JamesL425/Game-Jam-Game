@@ -1,7 +1,6 @@
 extends RigidBody2D
 
 class_name Parcel;
-signal shake;
 
 var can_pick: bool = false;
 var picking: bool = false;
@@ -59,7 +58,8 @@ func momentary_accel_compute(dt: float, velocity: Vector2, prev_velocity: Vector
 	var accel = (velocity - prev_velocity) / dt
 	if (accel.length() > shake_accel):
 		print("shake")
-		pass
+		if content.any(func(c): return c.category == ParcelContent.Category.GLASS):
+			$"Glass Sound".play()
 
 func _physics_process(delta: float) -> void:
 	var m_pos = get_global_mouse_position()
@@ -116,8 +116,3 @@ func close() -> void:
 	set_physics_process(true)
 	get_node("../../UI").hide()
 	open_scene.queue_free()
-
-func _on_shake() -> void:
-	# TODO: get correct sound based on what item it is
-	$"Placeholder Sound Effect".play()
-	pass # Replace with function body.
