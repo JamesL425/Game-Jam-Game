@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://da62owp18runl"]
+
+[ext_resource type="Texture2D" uid="uid://cwcbs18upljmo" path="res://textures/table_bg_letter.png" id="1_shtxr"]
+
+[node name="ExplosionScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="background" type="TextureRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("1_shtxr")
+
+[node name="Text" type="Label" parent="."]
+offset_left = 256.0
+offset_top = 194.0
+offset_right = 1603.0
+offset_bottom = 1061.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "You opened a parcel with an explosive device inside.
+
+Game Over."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3

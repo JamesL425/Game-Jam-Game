@@ -4,7 +4,10 @@ var current_day_index = 0;
 
 @onready var day0: Day = Day.new();
 @onready var day1: Day = Day.new();
-@onready var days: Array[Day] = [day0, day1];
+@onready var day2: Day = Day.new();
+@onready var day3: Day = Day.new();
+@onready var day4: Day = Day.new();
+@onready var days: Array[Day] = [day0, day1, day2, day3, day4];
 @onready var newsdays: Array[String];
 @onready var parcel: PackedScene = preload("res://scenes/parcel.tscn")
 
@@ -15,6 +18,7 @@ var plate = create_parcel_content("PLATE", ParcelContent.Category.CHINA, ParcelC
 var stone = create_parcel_content("STONE", ParcelContent.Category.HARD, ParcelContent.Classification.ART, false)
 var pickle = create_parcel_content("PICKLE", ParcelContent.Category.GLASS, ParcelContent.Classification.FOOD, true)
 var toy = create_parcel_content("TOY", ParcelContent.Category.PLASTIC, ParcelContent.Classification.TOY, false)
+var letter_bomb = create_parcel_content("LETTER_BOMB", ParcelContent.Category.HARD, ParcelContent.Classification.WEAPON, false)
 
 var letter1: Variant = load("res://resources/letter1.json").get_data();
 var letter2: Variant = load("res://resources/letter2.json").get_data();
@@ -73,22 +77,51 @@ func make_letter(letter: Variant) -> Parcel:
 	p.init_letter_parcel(true, letter.Content)
 	return p
 
+func create_plain_day(day):
+	day.parcels.resize(10)
+	for i in 10:
+		day.parcels[i] = make_random_parcel()
+		
 func _ready() -> void:
 	newsdays.append(news1.Content)
 	newsdays.append(news1.Content)
 	newsdays.append(news1.Content)
 	newsdays.append(news2.Content)
 	day0.parcels.resize(10)
-	for i in 9:
-		day0.parcels[i] = make_random_parcel()
-	day0.parcels[9] = make_letter(letter1)
-	day0.parcels.shuffle()
-	
-	day1.parcels.resize(10)
 	for i in 10:
-		day1.parcels[i] = make_random_parcel()
+		day0.parcels[i] = make_random_parcel()
 	
-	day1.parcels.shuffle()
+	day0.parcels[0] = make_letter(news1)
+	day0.parcels[6] = make_letter(letter1)
+	
+	
+	create_plain_day(day1)
+	
+	day2.parcels.resize(10)
+	for i in 8:
+		day2.parcels[i] = make_random_parcel()
+	
+	day2.parcels[8] = make_letter(letter2)
+	day2.parcels[9] = make_letter(letter3)
+	day2.parcels.shuffle()
+	
+	create_plain_day(day3)
+	day3.parcels[0] = make_letter(news2)
+	day4.parcels.resize(1)
+	var p: Parcel = parcel.instantiate()
+	var content: Array[ParcelContent] = [letter_bomb]
+	print(content[0].item_name)
+	var declarations = generate_declarations(content)
+	p.init_box_parcel(content, declarations)
+	p.shouldReject = should_reject_last_generated_parcel_declarations
+	day4.parcels[0] = p
+	
+	day0.number = 0;
+	day1.number = 1;
+	day2.number = 2;
+	day3.number = 3;
+	day4.number = 4;
+	
 	
 func get_next_day() -> Day:
 	current_day_index += 1;

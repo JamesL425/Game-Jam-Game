@@ -150,7 +150,7 @@ offset_top = 38.0
 offset_right = 438.0
 offset_bottom = 99.0
 theme_override_font_sizes/font_size = 36
-text = "Remaining opens: 5/5"
+text = "Remaining opens: 5/5, rclick to open, esc to close"
 
 [node name="Background Music" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamPlaylist_trtic")

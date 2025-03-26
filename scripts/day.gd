@@ -7,6 +7,7 @@ var index: int;
 
 var has_newspaper: bool;
 var newspaper_content: String;
+var number: int;
 
 func _ready() -> void:
 	index = 0

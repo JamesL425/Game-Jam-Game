@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://cu3mr0bd5lneq"]
+
+[ext_resource type="Texture2D" uid="uid://cwcbs18upljmo" path="res://textures/table_bg_letter.png" id="1_tj78b"]
+
+[node name="NewsScreen" type="Node2D"]
+
+[node name="background" type="TextureRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("1_tj78b")
+
+[node name="News" type="Label" parent="."]
+offset_left = 256.0
+offset_top = 194.0
+offset_right = 1603.0
+offset_bottom = 1061.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "This is test content"
+autowrap_mode = 3

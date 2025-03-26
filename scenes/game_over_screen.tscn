@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://cgw2j7b5qfjwc"]
+
+[ext_resource type="Texture2D" uid="uid://cwcbs18upljmo" path="res://textures/table_bg_letter.png" id="1_iwahs"]
+
+[node name="GameOverScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="background" type="TextureRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("1_iwahs")
+
+[node name="Text" type="Label" parent="."]
+offset_left = 256.0
+offset_top = 194.0
+offset_right = 1603.0
+offset_bottom = 1061.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "The letter bomb, invented by the suffragettes, arrives on the doorstep of the Chancellor of the Exchequer, David Lloyd George. Unsuspecting, he opens it to his demise...
+
+Game Over."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3

@@ -11,6 +11,7 @@ var shouldReject: bool = true;
 enum ParcelType {
 	LETTER,
 	BOX,
+	BOMB
 }
 
 var type: ParcelType = ParcelType.BOX;
@@ -54,6 +55,8 @@ func init_box_parcel(in_content: Array[ParcelContent], in_declarations: Array[Pa
 	if content.any(func(c): return c.fragile) or randi_range(0, 4) == 0:
 		$FragileLabel.show()
 	type = ParcelType.BOX
+	if in_content[0].classification == in_content[0].Classification.WEAPON:
+		type = ParcelType.BOMB
 
 var prev_velocity: Vector2 = Vector2(0, 0);
 var shake_accel: float = 1000;
@@ -118,12 +121,13 @@ func _input(event: InputEvent) -> void:
 		deselect()
 		
 	if (picking && event.is_action_pressed("rclick")):
-		if Stats.day_opens_remaining > 0:
+		if Stats.day_opens_remaining > 0 or type != ParcelType.BOX:
 			is_open = true;
 			open()
-			Stats.day_opens_remaining -= 1
-			get_node(UI_Path + "/RemainingOpens").text = "Remaining Opens: " + str(Stats.day_opens_remaining) + "/5"
-	if (is_open && event.is_action_pressed("escape")):
+			if type == ParcelType.BOX:
+				Stats.day_opens_remaining -= 1
+			get_node(UI_Path + "/RemainingOpens").text = "Remaining Opens: " + str(Stats.day_opens_remaining) + "/5, rclick to open, esc to close"
+	if (is_open && event.is_action_pressed("escape") && type != ParcelType.BOMB):
 		is_open = false;
 		close()
 
@@ -131,6 +135,8 @@ var open_scene: Node;
 
 var letter_open_scene: PackedScene = preload("res://scenes/letter_open_scene.tscn")
 var box_open_scene: PackedScene = preload("res://scenes/box_open_scene.tscn")
+var explosion_scene: PackedScene = preload("res://scenes/explosion_screen.tscn")
+
 func open():
 	if type == ParcelType.BOX:
 		var open_box = box_open_scene.instantiate()
@@ -143,13 +149,19 @@ func open():
 		get_node(UI_Path).add_child(open_box)
 		#get_node(UI_Path).show()
 		open_scene = open_box
-	else:
+	elif type == ParcelType.LETTER:
 		var open_letter = letter_open_scene.instantiate()
 		open_letter.get_node("Letter").text = letter_text
 		set_physics_process(false)
 		get_node(UI_Path).add_child(open_letter)
 		#get_node(UI_Path).show()
 		open_scene = open_letter
+	else:
+		var explosion_screen = explosion_scene.instantiate()
+		explosion_screen.get_node("Text").text = "You opened a parcel with an explosive device inside.\nGame Over."
+		set_physics_process(false)
+		get_node(UI_Path).add_child(explosion_screen)
+		open_scene = explosion_screen
 
 func close() -> void:
 	set_physics_process(true)
