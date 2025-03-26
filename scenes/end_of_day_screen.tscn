@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://by4uxsygvj4mk"]
 
-[ext_resource type="Script" uid="uid://c7fnjkoetcm2g" path="res://scripts/end_of_day_screen.gd" id="1_67hyk"]
+[ext_resource type="Script" path="res://scripts/end_of_day_screen.gd" id="1_67hyk"]
 
 [node name="EndOfDayScreen" type="Node2D"]
 script = ExtResource("1_67hyk")
