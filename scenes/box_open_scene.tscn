@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://ym0wyuiecw4u"]
+[gd_scene load_steps=2 format=3 uid="uid://ym0wyuiecw4u"]
+
+[ext_resource type="Texture2D" uid="uid://cgn52we3qm1wj" path="res://textures/table_bg.png" id="1_uu2es"]
 
 [node name="BoxOpenScene" type="MarginContainer"]
 anchors_preset = 15
@@ -7,9 +9,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="background" type="ColorRect" parent="."]
+[node name="background" type="TextureRect" parent="."]
 layout_mode = 2
-color = Color(0, 0, 0, 1)
+texture = ExtResource("1_uu2es")
 
 [node name="Box" type="HBoxContainer" parent="."]
 layout_mode = 2

@@ -37,20 +37,23 @@ func resize(this_scale: Vector2) -> void:
 	$Hitbox.scale = this_scale
 	$Sprite2D.scale = this_scale / sprite_scale_constant * hitbox_scale_constant;
 
-func init_letter_parcel(in_has_stamp: bool) -> void:
+func init_letter_parcel(in_has_stamp: bool, in_letter_text: String) -> void:
 	$Sprite2D.texture = letter_texture
 	resize(letter_scale)
 	has_stamp = in_has_stamp
-	$Label.text = AddressGenerator.create_address()
+	letter_text = in_letter_text
+	$AddressLetter.text = AddressGenerator.create_address()
+	type = ParcelType.LETTER
 	
 func init_box_parcel(in_content: Array[ParcelContent], in_declarations: Array[ParcelContent.Classification]) -> void:
 	$Sprite2D.texture = box_texture
 	resize(parcel_scale)
 	content = in_content
 	declared_content = in_declarations
-	$Label.text = "To: " + AddressGenerator.create_address() + "\n\n" + "From: " + AddressGenerator.create_address()
-	if content.any(func(c): return c.fragile):
+	$AddressBox.text = "To: " + AddressGenerator.create_address() + "\n\n" + "From: " + AddressGenerator.create_address()
+	if content.any(func(c): return c.fragile) or randi_range(0, 4) == 0:
 		$FragileLabel.show()
+	type = ParcelType.BOX
 
 var prev_velocity: Vector2 = Vector2(0, 0);
 var shake_accel: float = 1000;
@@ -115,8 +118,11 @@ func _input(event: InputEvent) -> void:
 		deselect()
 		
 	if (picking && event.is_action_pressed("rclick")):
-		is_open = true;
-		open()
+		if Stats.day_opens_remaining > 0:
+			is_open = true;
+			open()
+			Stats.day_opens_remaining -= 1
+			get_node(UI_Path + "/RemainingOpens").text = "Remaining Opens: " + str(Stats.day_opens_remaining) + "/5"
 	if (is_open && event.is_action_pressed("escape")):
 		is_open = false;
 		close()
@@ -139,7 +145,7 @@ func open():
 		open_scene = open_box
 	else:
 		var open_letter = letter_open_scene.instantiate()
-		open_letter.get_node("Letter/Content/Content").text = letter_text
+		open_letter.get_node("Letter").text = letter_text
 		set_physics_process(false)
 		get_node(UI_Path).add_child(open_letter)
 		#get_node(UI_Path).show()

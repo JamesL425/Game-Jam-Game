@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 AddressGenerator="*res://scripts/locations/load_locations.gd"
 GlobalRNG="*res://scripts/global_rng.gd"
 GlobalDaysList="*res://scripts/global_days.gd"
+Stats="*res://scripts/stats.gd"
 
 [display]
 

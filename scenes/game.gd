@@ -17,7 +17,7 @@ func spawn_parcel() -> void:
 		$game_content.call_deferred("add_child", parcel)
 
 func _ready() -> void:
-	current_day = GlobalDaysList.day0;
+	current_day = GlobalDaysList.get_next_day();
 	$"Background Music".play()
 	spawn_parcel()
 
@@ -26,10 +26,10 @@ func game_over():
 
 func _on_approve_basket_parcel_collected(correct: bool) -> void:
 	if correct:
-		print("correct")
+		Stats.day_correct += 1
 	spawn_parcel()
 
 func _on_reject_basket_parcel_collected(correct: bool) -> void:
 	if correct:
-		print("correct")
+		Stats.day_correct += 1
 	spawn_parcel()
